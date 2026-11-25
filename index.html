@@ -1,866 +1,455 @@
-/* ==========================================================================
-   CognitiveAI - Stylesheet
-   HTML & CSS Activity 3 (Group 3: AI Technology Website)
-   ========================================================================== */
-
-:root {
-  --bg-deep: #08090d;
-  --bg-surface: #0f1118;
-  --bg-card: #141722;
-  --bg-card-hover: #1b1f2e;
-  --accent-purple: #8b5cf6;
-  --accent-indigo: #6366f1;
-  --accent-cyan: #06b6d4;
-  --accent-pink: #ec4899;
-  --text-white: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --border-subtle: #202436;
-  --border-active: #3b4260;
-  --border-neon: rgba(139, 92, 246, 0.4);
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --shadow-neon: 0 0 35px rgba(139, 92, 246, 0.2);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--bg-deep);
-  color: var(--text-white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* Typography & Helpers */
-.gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 50%, #f472b6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.badge-tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent-purple);
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-}
-
-.section-header {
-  margin-bottom: 3.5rem;
-}
-
-.section-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-.section-sub {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.6rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: var(--transition);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent-purple), var(--accent-indigo));
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
-  background: linear-gradient(135deg, #9d71fb, var(--accent-indigo));
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  border-color: var(--border-subtle);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-purple);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--text-muted);
-}
-
-.btn-ghost:hover {
-  color: #fff;
-}
-
-.btn-large {
-  padding: 1rem 2.2rem;
-  font-size: 1.05rem;
-}
-
-.btn-block {
-  width: 100%;
-}
-
-/* Navigation Bar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(8, 9, 13, 0.85);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-subtle);
-  z-index: 1000;
-  padding: 1.1rem 0;
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.logo-mesh {
-  color: var(--accent-purple);
-  font-size: 1.5rem;
-}
-
-.ai-glow {
-  color: var(--accent-cyan);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.nav-links a:hover {
-  color: var(--text-white);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Hero Section */
-.hero {
-  position: relative;
-  padding: 9.5rem 0 6rem;
-  text-align: center;
-  overflow: hidden;
-}
-
-.grid-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 80%);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-}
-
-.version-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.4rem 1.2rem;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid var(--border-neon);
-  border-radius: 50px;
-  font-size: 0.85rem;
-  color: var(--text-white);
-  margin-bottom: 2rem;
-}
-
-.pill-sparkle {
-  color: var(--accent-purple);
-}
-
-.pill-tag {
-  background: var(--accent-purple);
-  font-size: 0.65rem;
-  font-weight: 800;
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-}
-
-.hero-heading {
-  font-size: 3.8rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1px;
-  margin-bottom: 1.5rem;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  max-width: 740px;
-  margin: 0 auto 2.5rem;
-}
-
-.hero-ctas {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-bottom: 4rem;
-}
-
-/* Terminal Card Simulator */
-.terminal-card {
-  max-width: 780px;
-  margin: 0 auto;
-  background: #0d0f17;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), var(--shadow-neon);
-  overflow: hidden;
-  text-align: left;
-}
-
-.terminal-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #141724;
-  padding: 0.75rem 1.2rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.terminal-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: #10b981; }
-
-.terminal-title {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-dim);
-}
-
-.terminal-status {
-  font-size: 0.75rem;
-  color: #10b981;
-}
-
-.terminal-body {
-  padding: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-}
-
-.t-line {
-  margin-bottom: 0.5rem;
-  color: var(--text-white);
-}
-
-.t-prompt {
-  color: var(--accent-purple);
-  font-weight: bold;
-}
-
-.t-info {
-  color: var(--text-muted);
-}
-
-.t-success {
-  color: #10b981;
-}
-
-.t-highlight {
-  color: var(--accent-cyan);
-}
-
-/* Partners Bar */
-.partners-bar {
-  padding: 3rem 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
-}
-
-.partners-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--text-dim);
-  margin-bottom: 1.5rem;
-}
-
-.partners-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3.5rem;
-  flex-wrap: wrap;
-}
-
-.partner-item {
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--text-dim);
-  transition: var(--transition);
-}
-
-.partner-item:hover {
-  color: var(--text-white);
-}
-
-/* Products Section */
-.products-section {
-  padding: 7rem 0;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.8rem;
-}
-
-.product-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 2.2rem;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card:hover {
-  border-color: var(--border-neon);
-  transform: translateY(-5px);
-  background: var(--bg-card-hover);
-}
-
-.highlight-product {
-  border: 2px solid var(--accent-purple);
-  box-shadow: var(--shadow-neon);
-}
-
-.product-icon {
-  font-size: 2.2rem;
-  margin-bottom: 1.2rem;
-}
-
-.product-category {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--accent-purple);
-  margin-bottom: 0.4rem;
-}
-
-.product-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.8rem;
-}
-
-.product-card p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.product-features {
-  list-style: none;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1rem;
-}
-
-.product-features li {
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  margin-bottom: 0.5rem;
-}
-
-/* Applications Section */
-.apps-section {
-  padding: 6rem 0;
-  background: var(--bg-surface);
-}
-
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.app-card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: var(--transition);
-}
-
-.app-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-indigo);
-}
-
-.app-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(8, 9, 13, 0.85);
-  backdrop-filter: blur(8px);
-  color: var(--accent-cyan);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  z-index: 2;
-}
-
-.app-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.app-body {
-  padding: 1.8rem;
-}
-
-.app-body h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-}
-
-.app-body p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-}
-
-/* Technology Architecture Section */
-.tech-section {
-  padding: 7rem 0;
-}
-
-.tech-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.tech-lead {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
-
-.benchmark-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-}
-
-.benchmark-item {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.benchmark-stat {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent-purple);
-  line-height: 1;
-  min-width: 100px;
-}
-
-.benchmark-desc h5 {
-  font-size: 1.05rem;
-  margin-bottom: 0.3rem;
-}
-
-.benchmark-desc p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.tech-diagram-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-neon);
-}
-
-.diagram-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--text-dim);
-}
-
-.diagram-tag {
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-}
-
-.pipeline-flow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.node-box {
-  width: 100%;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 1.2rem;
-  transition: var(--transition);
-}
-
-.node-box.active-node {
-  border-color: var(--accent-purple);
-  background: rgba(139, 92, 246, 0.08);
-}
-
-.node-type {
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: var(--accent-purple);
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-.node-box h5 {
-  font-size: 1.05rem;
-  margin-bottom: 0.2rem;
-}
-
-.node-box p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.flow-arrow {
-  color: var(--accent-purple);
-  font-size: 1.5rem;
-}
-
-/* Team Section */
-.team-section {
-  padding: 6rem 0;
-  background: var(--bg-surface);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.team-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  text-align: center;
-  transition: var(--transition);
-}
-
-.team-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-purple);
-}
-
-.team-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 1.2rem;
-  border: 2px solid var(--accent-purple);
-}
-
-.team-card h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
-}
-
-.team-title {
-  display: block;
-  font-size: 0.82rem;
-  color: var(--accent-cyan);
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-}
-
-.team-bio {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  margin-bottom: 1.2rem;
-}
-
-.social-links {
-  font-size: 0.82rem;
-  color: var(--accent-purple);
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-}
-
-/* Contact / Enterprise Section */
-.contact-section {
-  padding: 7rem 0;
-}
-
-.contact-box {
-  max-width: 800px;
-  margin: 0 auto;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 3.5rem;
-  box-shadow: var(--shadow-neon);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 0.85rem 1.1rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
-}
-
-.form-footnote {
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  margin-top: 1rem;
-}
-
-/* Footer */
-.footer {
-  background: #050608;
-  padding: 5rem 0 2rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
-}
-
-.footer-info p {
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  max-width: 300px;
-}
-
-.footer-col h5 {
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.footer-col a {
-  font-size: 0.88rem;
-  color: var(--text-dim);
-}
-
-.footer-col a:hover {
-  color: var(--accent-purple);
-}
-
-.footer-bottom {
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
-  font-size: 0.85rem;
-  color: var(--text-dim);
-}
-
-/* Responsive Media Queries */
-@media (max-width: 992px) {
-  .hero-heading {
-    font-size: 2.8rem;
-  }
-  .tech-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links, .btn-ghost {
-    display: none;
-  }
-  .hero-heading {
-    font-size: 2.2rem;
-  }
-  .hero-ctas {
-    flex-direction: column;
-  }
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  .contact-box {
-    padding: 2rem;
-  }
-  .partners-row {
-    gap: 1.8rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CognitiveAI - Sovereign Autonomous AI Agents & Neural Orchestration for Enterprise Intelligence.">
+  <title>CognitiveAI | Autonomous Enterprise Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-mesh">❖</span>
+        <span class="logo-name">Cognitive<span class="ai-glow">AI</span></span>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Platform</a>
+        <a href="#products">Products</a>
+        <a href="#applications">Applications</a>
+        <a href="#tech">Technology</a>
+        <a href="#team">Research Team</a>
+        <a href="#contact">Enterprise</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-ghost">Console Login</a>
+        <a href="#contact" class="btn btn-primary">Book Demo &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="grid-backdrop"></div>
+    <div class="container hero-content">
+      <div class="version-pill">
+        <span class="pill-sparkle">✨</span>
+        <span>Introducing Cognitive-4 Frontier Foundation Model</span>
+        <span class="pill-tag">NEW v4.2</span>
+      </div>
+
+      <h1 class="hero-heading">
+        Autonomous AI Agents for the <br>
+        <span class="gradient-text">Next Century of Enterprise</span>
+      </h1>
+
+      <p class="hero-description">
+        CognitiveAI orchestrates multi-agent neural networks that reason, compute, and execute complex mission-critical workflows across distributed cloud clusters with formal mathematical verification.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-large">Deploy Autonomous Cluster</a>
+        <a href="#tech" class="btn btn-secondary btn-large">Read Technical Whitepaper</a>
+      </div>
+
+      <!-- Live Terminal / Code Simulation Card -->
+      <div class="terminal-card">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">cognitive-mesh :: agent-runtime v4.2.0</span>
+          <span class="terminal-status"><span class="pulse-indicator"></span> Live Active Node (H200 NVLink)</span>
+        </div>
+        <div class="terminal-body">
+          <p class="t-line"><span class="t-prompt">$</span> cognitive cluster create --agents=128 --reasoning-depth=deep --model=cognitive-4</p>
+          <p class="t-line t-info">[INFO] Initializing multi-modal neural weights on TensorCore-H200 cluster...</p>
+          <p class="t-line t-success">[SUCCESS] 128 Autonomous agents coordinated in 4.2ms. Consensus verified.</p>
+          <p class="t-line t-highlight">&gt;&gt; Ready for enterprise workloads: Real-Time RAG, Predictive Analytics &amp; Autonomous Auditing.<span class="cursor-blink">|</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Partners Logos -->
+  <section class="partners-bar">
+    <div class="container text-center">
+      <p class="partners-label">TRUSTED BY INNOVATION TEAMS AT GLOBAL FORTUNE 500 LEADERS</p>
+      <div class="partners-row">
+        <span class="partner-item">VERTEX CORP</span>
+        <span class="partner-item">QUANTUM DYNAMICS</span>
+        <span class="partner-item">APEX CLOUD</span>
+        <span class="partner-item">NEURALBYTE</span>
+        <span class="partner-item">GLOBAL FINTECH</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Products Suite Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-tag">ENTERPRISE PLATFORM</span>
+        <h2 class="section-title">The Cognitive AI Product Suite</h2>
+        <p class="section-sub">A unified ecosystem of autonomous intelligence, vision perception, and predictive orchestration.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-icon">🧠</div>
+          <span class="product-category">FOUNDATION LLM</span>
+          <h3>Cognitive-4 Frontier</h3>
+          <p>Our billion-parameter reasoning engine capable of complex mathematics, structured logic, and deterministic enterprise execution.</p>
+          <ul class="product-features">
+            <li>⚡ 1M token context memory window</li>
+            <li>🔒 On-premise air-gapped deployment option</li>
+            <li>🎯 Sub-second latency via speculative decoding</li>
+          </ul>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card highlight-product">
+          <div class="product-badge">POPULAR ARCHITECTURE</div>
+          <div class="product-icon">🤖</div>
+          <span class="product-category">AGENTIC ORCHESTRATION</span>
+          <h3>SwarmMesh Autonomous</h3>
+          <p>Multi-agent collaborative network that partitions monolithic operations into self-correcting micro-tasks executed concurrently.</p>
+          <ul class="product-features">
+            <li>⚡ Self-healing agent consensus protocol</li>
+            <li>🔒 Strict role-based action permission guards</li>
+            <li>🎯 Automated test, verify, and code synthesis</li>
+          </ul>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-icon">👁️</div>
+          <span class="product-category">SPATIAL & VISION</span>
+          <h3>VisionCore Pro</h3>
+          <p>Ultra-high-resolution computer vision model for real-time video stream analytics, anomaly detection, and geospatial tracking.</p>
+          <ul class="product-features">
+            <li>⚡ 120 FPS high-throughput processing</li>
+            <li>🔒 3D bounding geometry recognition</li>
+            <li>🎯 Industrial quality control & defect telemetry</li>
+          </ul>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-icon">🛡️</div>
+          <span class="product-category">GOVERNANCE & SAFETY</span>
+          <h3>GuardRail Sentinel</h3>
+          <p>Real-time security firewall inspecting prompt injection attempts, PII leakage, hallucination drift, and regulatory compliance.</p>
+          <ul class="product-features">
+            <li>⚡ SOC2 Type II & HIPAA automated policy audit</li>
+            <li>🔒 Zero training on customer confidential data</li>
+            <li>🎯 Instant toxic mitigation & explainable citations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-World Applications Section -->
+  <section id="applications" class="apps-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-tag">INDUSTRY IMPACT</span>
+        <h2 class="section-title">Transforming Critical Sectors</h2>
+        <p class="section-sub">From modern genomics to autonomous supply chains, see our platform in live production.</p>
+      </div>
+
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-badge">FINANCIAL INTELLIGENCE</div>
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80" alt="Financial Intelligence AI" class="app-img">
+          <div class="app-body">
+            <h4>Autonomous Fraud Interception & Algorithmic Hedging</h4>
+            <p>Analyzing millions of concurrent transactions in 3ms to neutralize synthetic identity fraud and forecast liquidity movements.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-badge">HEALTHCARE & LIFE SCIENCES</div>
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Biomedical Diagnostics AI" class="app-img">
+          <div class="app-body">
+            <h4>Clinical Trial Synthesis & Molecular Affinity Analysis</h4>
+            <p>Accelerating drug discovery pipelines by simulating protein-ligand binding kinetics and reading clinical literature across languages.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-badge">SMART INFRASTRUCTURE</div>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Smart City Infrastructure AI" class="app-img">
+          <div class="app-body">
+            <h4>Predictive Power Grids & Automated Logistics Fleets</h4>
+            <p>Optimizing continental electrical distribution and routing self-navigating cargo fleets during severe weather disruptions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Architecture & Benchmarks Section -->
+  <section id="tech" class="tech-section">
+    <div class="container">
+      <div class="tech-grid">
+        <div class="tech-info">
+          <span class="badge-tag">ARCHITECTURE</span>
+          <h2 class="section-title">Engineered on Mixture-of-Agents (MoA) Infrastructure</h2>
+          <p class="tech-lead">Unlike brittle legacy monolithic models, CognitiveAI leverages an elastic hierarchical mesh of specialized neural agents trained on mathematical proofs and formal logic.</p>
+          
+          <div class="benchmark-list">
+            <div class="benchmark-item">
+              <div class="benchmark-stat">98.4%</div>
+              <div class="benchmark-desc">
+                <h5>MMLU Enterprise Reasoning Benchmark</h5>
+                <p>Outperforming baseline LLMs on financial, legal, and software engineering reasoning.</p>
+              </div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-stat">4.2ms</div>
+              <div class="benchmark-desc">
+                <h5>First-Token Time-to-Latency (TTFT)</h5>
+                <p>Ultra-optimized KV-cache sharding engineered on custom NVLink interconnects.</p>
+              </div>
+            </div>
+
+            <div class="benchmark-item">
+              <div class="benchmark-stat">0.00%</div>
+              <div class="benchmark-desc">
+                <h5>Data Retention on Prompt Inferences</h5>
+                <p>Complete data sovereignty guaranteed under strict hardware-level encryption.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-diagram-box">
+          <div class="diagram-header">
+            <span>COGNITIVE NEURAL PIPELINE</span>
+            <span class="diagram-tag">ACTIVE ARCHITECTURE</span>
+          </div>
+          <div class="pipeline-flow">
+            <div class="node-box">
+              <span class="node-type">INGESTION</span>
+              <h5>Enterprise Multimodal Stream</h5>
+              <p>SQL, PDFs, REST APIs, Vector Stores</p>
+            </div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="node-box active-node">
+              <span class="node-type">ORCHESTRATION</span>
+              <h5>SwarmMesh Dynamic Dispatcher</h5>
+              <p>Autonomous task decomposition & consensus routing</p>
+            </div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="node-box">
+              <span class="node-type">VERIFICATION</span>
+              <h5>GuardRail Sentinel Zero-Trust Audit</h5>
+              <p>Policy enforcement, sandbox code test & verified output</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Leadership Team Section -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-tag">SCIENTIFIC LEADERSHIP</span>
+        <h2 class="section-title">Pioneers in Machine Intelligence</h2>
+        <p class="section-sub">Our research laboratory unites world-class computer scientists, mathematicians, and systems architects.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Dr. Aris Thorne" class="team-avatar">
+          <h4>Dr. Aris Thorne</h4>
+          <span class="team-title">Chief Executive Officer & Founder</span>
+          <p class="team-bio">Former Principal AI Researcher at DeepMind. PhD in Computational Neuroscience from Oxford University.</p>
+          <div class="social-links">
+            <a href="#team">Scholar</a> &bull; <a href="#team">GitHub</a> &bull; <a href="#team">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Dr. Julian Vance" class="team-avatar">
+          <h4>Dr. Julian Vance</h4>
+          <span class="team-title">Chief Science Officer</span>
+          <p class="team-bio">Pioneer in Mixture-of-Experts (MoE) architectures and speculative decoding algorithms. 40+ published papers.</p>
+          <div class="social-links">
+            <a href="#team">Scholar</a> &bull; <a href="#team">GitHub</a> &bull; <a href="#team">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Elena Rostova" class="team-avatar">
+          <h4>Elena Rostova</h4>
+          <span class="team-title">Head of Agentic Safety & Alignment</span>
+          <p class="team-bio">Specializing in formal mathematical verification of autonomous systems and zero-leakage security boundaries.</p>
+          <div class="social-links">
+            <a href="#team">Scholar</a> &bull; <a href="#team">GitHub</a> &bull; <a href="#team">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Kavita Raman" class="team-avatar">
+          <h4>Kavita Raman</h4>
+          <span class="team-title">VP of Distributed Systems</span>
+          <p class="team-bio">Architect of high-density GPU superclusters with 15+ years experience managing hyperscale infrastructure.</p>
+          <div class="social-links">
+            <a href="#team">Scholar</a> &bull; <a href="#team">GitHub</a> &bull; <a href="#team">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact & Enterprise Trial Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-header text-center">
+          <span class="badge-tag">SCHEDULE BRIEFING</span>
+          <h2 class="section-title">Deploy CognitiveAI in Your Enterprise</h2>
+          <p class="section-sub">Speak directly with an AI Solutions Architect to run a customized proof-of-concept on your data.</p>
+        </div>
+
+        <form class="enterprise-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="workEmail">Work Email</label>
+              <input type="email" id="workEmail" placeholder="alex@enterprise.com" required>
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Alex Mercer" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="orgName">Organization / Company Name</label>
+              <input type="text" id="orgName" placeholder="Acme International Corp" required>
+            </div>
+            <div class="form-group">
+              <label for="useCase">Primary Use Case</label>
+              <select id="useCase">
+                <option value="agents">Autonomous Multi-Agent Networks</option>
+                <option value="rag">Enterprise Knowledge Retrieval (RAG)</option>
+                <option value="vision">Computer Vision &amp; Industrial Telemetry</option>
+                <option value="guardrails">Security, Governance &amp; Red Teaming</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="scope">Project Scope &amp; Requirements</label>
+            <textarea id="scope" rows="4" placeholder="Describe expected token volume, on-premise vs cloud constraints, and key workflow integrations..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-large">Request Custom Enterprise Pilot</button>
+          <p class="form-footnote">Includes 14-day dedicated sandbox access, SLA guarantee, and solutions engineer onboarding.</p>
+          <div id="formSuccess" class="form-success-msg" style="display: none;">
+            ✓ Thank you! Your enterprise deployment request has been logged. Our solutions architect will contact you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <div class="logo">
+          <span class="logo-mesh">❖</span>
+          <span class="logo-name">Cognitive<span class="ai-glow">AI</span></span>
+        </div>
+        <p>The sovereign autonomous agent framework for mission-critical enterprise intelligence.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Models &amp; API</h5>
+        <a href="#products">Cognitive-4 Frontier</a>
+        <a href="#products">SwarmMesh Orchestrator</a>
+        <a href="#products">VisionCore Pro</a>
+        <a href="#tech">API Documentation</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <a href="#applications">FinTech Risk &amp; Trading</a>
+        <a href="#applications">Clinical Life Sciences</a>
+        <a href="#applications">Autonomous Supply Chain</a>
+        <a href="#tech">Security Whitepaper</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#team">Scientific Laboratory</a>
+        <a href="#team">Research Careers</a>
+        <a href="#contact">Press &amp; Media</a>
+        <a href="#contact">Contact Concierge</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <p>&copy; 2026 CognitiveAI Technologies Inc. All rights reserved. &bull; HTML &amp; CSS Activity 3 (Group 3: AI Technology Website)</p>
+    </div>
+  </footer>
+
+  <!-- Light client-side script for interactive controls -->
+  <script>
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        menuToggle.classList.toggle('toggle-active');
+      });
+      // Close menu when clicking any link
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('nav-open');
+          menuToggle.classList.remove('toggle-active');
+        });
+      });
+    }
+
+    // Interactive form response feedback
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    if (contactForm && formSuccess) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+      });
+    }
+  </script>
+
+</body>
+</html>
