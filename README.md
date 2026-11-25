@@ -2,7 +2,8 @@
 
 > **Project Group:** Group 3  
 > **Assigned Project:** 7. AI Technology Website  
-> **Course / Activity:** Creative HTML & CSS Webpage Projects (Activity 3)
+> **Course / Activity:** Creative HTML & CSS Webpage Projects (Activity 3)  
+> **Live Webpage Deployment:** [https://fanmade97.github.io/Html_css_activity-3/](https://fanmade97.github.io/Html_css_activity-3/)
 
 ---
 
@@ -11,15 +12,21 @@
 
 ---
 
+## 🌐 Live Demo & Deployment
+The website is live and hosted directly via **GitHub Pages**:
+👉 **[https://fanmade97.github.io/Html_css_activity-3/](https://fanmade97.github.io/Html_css_activity-3/)**
+
+---
+
 ## ✨ Features Included
-- **Sticky Blur Navigation:** Logo with glowing symbol, smooth navigation anchor links, and direct demo scheduling.
+- **Sticky Blur Navigation:** Logo with glowing symbol, smooth navigation anchor links, and mobile-responsive toggle drawer.
 - **Hero Command Center:** Radial glow, interactive terminal command emulator displaying live cluster diagnostics, latency telemetry, and dual action buttons.
 - **Enterprise Partner Bar:** Clean typography-driven showcase of Fortune 500 partner brands.
-- **AI Product Suite Grid:** Product cards highlighting Cognitive-4 LLM, SwarmMesh Agents, VisionCore Pro, and GuardRail Sentinel with hover glow effects.
+- **AI Product Suite Grid:** Product cards highlighting Cognitive-4 LLM, SwarmMesh Agents, VisionCore Pro, and GuardRail Sentinel with hover glow effects and architecture tags.
 - **Real-World Industry Applications:** High-impact visual cards covering Algorithmic Finance, Life Sciences Diagnostics, and Smart Autonomous Logistics.
 - **Mixture-of-Agents (MoA) Architecture:** Structured pipeline diagram showcasing real-time data ingestion, swarm dispatch, and zero-trust verification alongside performance metrics (98.4% MMLU, 4.2ms TTFT).
 - **Research Leadership Profiles:** Scientific team directory including CEO, Chief Scientist, Head of Alignment, and VP of Distributed Systems.
-- **Enterprise Pilot Contact Form:** Complete qualification form for enterprise cluster pilots with use case selector.
+- **Enterprise Pilot Contact Form:** Complete qualification form for enterprise cluster pilots with interactive client-side feedback.
 - **Dark-Mode Footer:** Comprehensive site map, legal disclosures, API links, and security whitepapers.
 
 ---
@@ -27,6 +34,7 @@
 ## 💻 Tech Stack
 - **HTML5:** Semantic architecture (`<header>`, `<nav>`, `<section>`, `<article>`, `<form>`, `<footer>`).
 - **CSS3:** Custom properties (CSS variables), Flexbox, CSS Grid, code terminal styling, glow animations, and responsive media queries.
+- **JavaScript:** Lightweight client-side toggle for mobile navigation and form feedback.
 - **Typography:** Google Fonts (`Plus Jakarta Sans` & `JetBrains Mono`).
 - **Responsive Design:** 100% responsive across mobile phones, tablets, and ultra-wide screens.
 
